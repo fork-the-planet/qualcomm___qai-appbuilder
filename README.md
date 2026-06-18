@@ -1,7 +1,7 @@
 <br><br><br>
 
 <div align="center">
-  <a href="README.md"><img src="https://raw.githubusercontent.com/quic/ai-engine-direct-helper/main/docs/images/qai_appbuilder.png" alt="Quick AI Application Builder" width="360" height="90"></a>
+  <a href="README.md"><img src="https://raw.githubusercontent.com/qualcomm/qai-appbuilder/main/docs/images/qai_appbuilder.png" alt="Quick AI Application Builder" width="360" height="90"></a>
 </div>
 
 <br><br><br>
@@ -9,8 +9,8 @@
 <div align="center">
   <h3>A simple way to build AI application based on Qualcomm® AI Runtime SDK.</h3>
   <p><i> SIMPLE | EASY | FAST </i></p>
-  <a href="https://github.com/quic/ai-engine-direct-helper"><img src="https://img.shields.io/github/stars/quic/ai-engine-direct-helper" alt="stars"></a>
-  <a href="https://github.com/quic/ai-engine-direct-helper/releases/tag/v2.38.0"><img src="https://img.shields.io/badge/Release-v2.0.0-green" alt="Release"></a>
+  <a href="https://github.com/qualcomm/qai-appbuilder"><img src="https://img.shields.io/github/stars/qualcomm/qai-appbuilder" alt="stars"></a>
+  <a href="https://github.com/qualcomm/qai-appbuilder/releases/tag/v2.38.0"><img src="https://img.shields.io/badge/Release-v2.0.0-green" alt="Release"></a>
   <a href="https://opensource.org/license/BSD-3-clause"><img src="https://img.shields.io/badge/License-BSD--3--Clause-blue" alt="License: BSD 3-Clause"></a>
   <a href="https://www.python.org/downloads/windows/"><img src="https://img.shields.io/badge/Python-00599C?logo=Python" alt="Python"></a>
   <a href="https://en.cppreference.com/w/cpp/compiler_support"><img src="https://img.shields.io/badge/C++-999999?logo=c%2B%2B" alt="C++"></a>
@@ -74,12 +74,12 @@ Developers can use QAI AppBuilder in both C++ and Python projects <br>
 
 ** Support ARM64 Windows, Linux and Ubuntu (e.g.: X Elite Windows, QCS8550 Linux and QCM6490 Ubuntu). <br>
 ** Support OpenAI Compatible API Service([GenieAPIService](samples/genie/c++/README.md)) on WoS, Android and Linux. <br>
-** Use "native" mode input & output data can improve data conversation performance obviously. Refer to [User Guide](https://github.com/quic/ai-engine-direct-helper/blob/main/docs/user_guide.md#native-mode) & [Wisper](samples/python/whisper_base_en/whisper_base_en.py) sample code. <br>
+** Use "native" mode input & output data can improve data conversation performance obviously. Refer to [User Guide](https://github.com/qualcomm/qai-appbuilder/blob/main/docs/user_guide.md#native-mode) & [Wisper](samples/python/whisper_base_en/whisper_base_en.py) sample code. <br>
 
 ## Diagram
 <br>
 <div align="center">
-  <a href="README.md"><img src="https://raw.githubusercontent.com/quic/ai-engine-direct-helper/main/docs/images/diagram2.png" alt="Quick AI Application Builder" width="777" height="456"></a>
+  <a href="README.md"><img src="https://raw.githubusercontent.com/qualcomm/qai-appbuilder/main/docs/images/diagram2.png" alt="Quick AI Application Builder" width="777" height="456"></a>
 </div>
 
 ## Environment Setup
@@ -150,12 +150,12 @@ We provide [QAI AppBuilder Launcher](tools/launcher/), enabling you to experienc
 ## QAI AppBuilder Components
 There're two ways to use QAI AppBuilder:
 ### 1. Using the QAI AppBuilder C++ libraries to develop C++ based AI application.
-Download prebuild binary package *QAI_AppBuilder-win_arm64-{Qualcomm® AI Runtime SDK version}-Release.zip* to get these files: https://github.com/quic/ai-engine-direct-helper/releases
+Download prebuild binary package *QAI_AppBuilder-win_arm64-{Qualcomm® AI Runtime SDK version}-Release.zip* to get these files: https://github.com/qualcomm/qai-appbuilder/releases
 
 ### 2. Using the QAI AppBuilder Python binding extension to develop Python based AI application.
 Install by run 'pip install qai-appbuilder' directly,
 or download Python extension *qai_appbuilder-{version}-cp312-cp312-win_amd64.whl* and install it with the command below:
-https://github.com/quic/ai-engine-direct-helper/releases
+https://github.com/qualcomm/qai-appbuilder/releases
 
 ```
 pip install qai_appbuilder-{version}-cp312-cp312-win_amd64.whl
@@ -166,17 +166,17 @@ Refere to [User Guide](docs/user_guide.md) on how to use QAI AppBuilder to progr
 Refer to [tutorial.ipynb](docs/tutorial.ipynb) to setup and run a cv model step by step.
 
 ## Build
-You can use the pre-compiled version directly and download the version you need from [Release](https://github.com/quic/ai-engine-direct-helper/releases). And if you want other qai-appbuilder whl file, please to compile it by yourself refer to this doc [BUILD.md](BUILD.md).
+You can use the pre-compiled version directly and download the version you need from [Release](https://github.com/qualcomm/qai-appbuilder/releases). And if you want other qai-appbuilder whl file, please to compile it by yourself refer to this doc [BUILD.md](BUILD.md).
 
 ## License
 QAI AppBuilder is licensed under the BSD 3-clause "New" or "Revised" License. Check out the [LICENSE](LICENSE) for more details.
 
 ## Star History
 
-<a href="https://www.star-history.com/#quic/ai-engine-direct-helper&Date">
+<a href="https://www.star-history.com/#qualcomm/qai-appbuilder&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=quic/ai-engine-direct-helper&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=quic/ai-engine-direct-helper&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=quic/ai-engine-direct-helper&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=qualcomm/qai-appbuilder&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=qualcomm/qai-appbuilder&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=qualcomm/qai-appbuilder&type=Date" />
  </picture>
 </a>
