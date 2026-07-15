@@ -50,6 +50,8 @@ data/
 models/
 !factory/app_builder/models/
 !factory/app_builder/models/**
+!skills/aihub-model-run/models/
+!skills/aihub-model-run/models/**
 factory/app_builder/models/**/__pycache__/
 factory/app_builder/models/**/*.pyc
 bin/
