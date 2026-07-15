@@ -1,0 +1,21 @@
+{
+  "_comment": "FileGuard base-environment path whitelist. This is a RUNTIME BASELINE, NOT a user preference: it declares the paths the tool's own runtime legitimately needs to read / write / execute so the native OS file guard (guard64.dll) and the in-process permission check do not prompt (ASK) or block them. Loaded once at startup and merged into the FileGuard whitelist. DELIBERATELY NOT editable via the UI / runtime-config API (not part of the reboot/hot-apply switch set) - to change the base environment, edit this file directly. Each entry: {path, read, write, execute}. Per-op precision is enforced natively via the op-masked whitelist (guard64.dll white_ops): an op whose flag is true is allowed (no prompt); an op whose flag is false FALLS THROUGH to the normal ASK / policy path (it is NOT force-allowed). 'path' may contain %ENV% variables (e.g. %LOCALAPPDATA%), expanded at load; an entry whose variable is unset is skipped. Matching is prefix + component-boundary aware. The built-in protected_write_paths black list (e.g. C:\\Qualcomm) still hard-denies writes with highest priority, so 'write: false' on a protected tree is doubly enforced.",
+  "_schema": "version 1: entries[] of {path: str, read: bool, write: bool, execute: bool}",
+  "version": 1,
+  "entries": [
+    {
+      "_note": "The tool's own per-user runtime root (venv, models, data, blobs, caches). Full read/write/execute - the application's own working tree.",
+      "path": "%LOCALAPPDATA%\\QAIModelBuilder",
+      "read": true,
+      "write": true,
+      "execute": true
+    },
+    {
+      "_note": "The Qualcomm toolchain / QAIRT SDK install root. Read + execute (run qnn-* / SDK binaries) but NOT write. Write is doubly denied: the op-mask has write:false (so a write is NOT force-allowed) AND the built-in protected_write_paths black list (C:\\Qualcomm) hard-denies it.",
+      "path": "C:\\Qualcomm",
+      "read": true,
+      "write": false,
+      "execute": true
+    }
+  ]
+}

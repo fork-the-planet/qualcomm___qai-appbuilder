@@ -1,0 +1,59 @@
+@echo off
+REM ---------------------------------------------------------------------
+REM Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+REM SPDX-License-Identifier: BSD-3-Clause
+REM ---------------------------------------------------------------------
+REM QAIModelBuilder - Open an activated environment console
+REM
+REM Double-click (or run) this to drop into the project's isolated Python
+REM 3.13 environment as an interactive shell, so you can install extra
+REM packages or run ad-hoc commands without typing the long venv path:
+REM   pip install <package>          (standard)
+REM   uv pip install <package>       (faster, uses uv)
+REM   qai --help                     (the unified CLI is on PATH here too)
+REM To permanently record new runtime dependencies, add them to
+REM pyproject.toml [project].dependencies (the single source of truth since
+REM requirements.txt was removed).
+
+REM NOTE: Do NOT use "chcp 65001" here - it causes cmd.exe to silently drop leading
+REM       characters from command output on some Windows versions (known OS bug).
+
+echo.
+echo  +--------------------------------------------------+
+echo  ^|   QAI ModelBuilder  -  Environment Console       ^|
+echo  +--------------------------------------------------+
+echo.
+echo  [INFO] Entering isolated Python 3.13 environment...
+echo  [INFO] Install packages:  pip install ^<package^>
+echo  [INFO]                or: uv pip install ^<package^>
+echo  [INFO] Run the CLI:       qai --help
+echo  [INFO] Exit console:      exit
+echo.
+
+set "ROOT_DIR=%~dp0"
+set "VENV_DIR=%LOCALAPPDATA%\QAIModelBuilder\envs\.venv_arm64_313"
+set "ACTIVATE=%VENV_DIR%\Scripts\activate.bat"
+
+if not exist "%ACTIVATE%" goto :no_venv
+
+REM Add tools\ to PATH so uv is available inside the shell.
+set "PATH=%ROOT_DIR%tools;%PATH%"
+
+REM PortableGit PATH injection (parity with Start.bat / qai.bat) so commands
+REM that shell out to git -- e.g. `pip install git+https://...`, editable
+REM installs of git checkouts, or `qai` subcommands -- find git even on a
+REM machine without a system-wide git.
+set "PORTABLE_GIT_DIR=%LOCALAPPDATA%\QAIModelBuilder\git"
+if exist "%PORTABLE_GIT_DIR%\cmd\git.exe" (
+    set "PATH=%PORTABLE_GIT_DIR%\cmd;%PORTABLE_GIT_DIR%\usr\bin;%PATH%"
+) else if exist "%PORTABLE_GIT_DIR%\bin\git.exe" (
+    set "PATH=%PORTABLE_GIT_DIR%\bin;%PORTABLE_GIT_DIR%\usr\bin;%PATH%"
+)
+
+cmd /k call "%ACTIVATE%"
+exit /b 0
+
+:no_venv
+echo [ERROR] .venv not found at %LOCALAPPDATA%\QAIModelBuilder\envs. Please run Setup.bat first.
+pause
+exit /b 1

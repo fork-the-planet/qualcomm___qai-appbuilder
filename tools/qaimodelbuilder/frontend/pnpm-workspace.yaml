@@ -1,0 +1,25 @@
+# pnpm settings (pnpm-workspace.yaml). Since pnpm 10+ this file — not the
+# package.json "pnpm" key — is the home for these settings. See
+# https://pnpm.io/settings
+#
+# overrides.entities: pin the transitive `entities` dependency to 4.5.0 (kept
+# from the previous package.json "pnpm.overrides"). patchedDependencies was
+# empty and is intentionally omitted.
+overrides:
+  entities: 4.5.0
+
+# allowBuilds: pnpm 10.26+/11 no longer runs dependency install/build scripts
+# (postinstall etc.) by default for supply-chain safety; unreviewed build
+# scripts fail the install with ERR_PNPM_IGNORED_BUILDS (strictDepBuilds
+# defaults to true -> non-zero exit), which would hang/fail automated builds.
+# We explicitly allow ONLY the packages that genuinely need a build step, so
+# `pnpm install` runs them non-interactively (no `pnpm approve-builds` prompt)
+# for every user. NOTE: pnpm 11 REPLACED the old `onlyBuiltDependencies` list
+# with this `allowBuilds` map (name: true/false).
+#   - esbuild:  places its platform-native binary (vite depends on it; without
+#               this node_modules/esbuild is incomplete and `vite build` fails).
+#   - vue-demi: postinstall switches its shim to match the installed Vue major.
+# See https://pnpm.io/settings#allowbuilds
+allowBuilds:
+  esbuild: true
+  vue-demi: true
